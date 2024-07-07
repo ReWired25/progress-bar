@@ -1,0 +1,83 @@
+/* Rotate animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Closing animation */
+@keyframes closeRotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.progress {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress__diagram {
+  --size: 200px;
+  --half-size: 100px;
+  --stroke-width: 15px;
+  --progress: 0;
+
+  --radius: calc((var(--size) - var(--stroke-width)) / 2);
+  --circumference: calc(var(--radius) * pi * 2);
+  --dasharray: calc((var(--progress) * var(--circumference)) / 100);
+
+  transition: opacity var(--time-base);
+}
+
+.progress__diagram--animation {
+  animation: rotate var(--time-animation) linear infinite;
+}
+
+.progress__diagram--animation-closing {
+  animation: closeRotate var(--time-base) linear forwards;
+}
+
+.progress__diagram--hidden {
+  opacity: 0;
+}
+
+.progress__circle {
+  cx: var(--half-size);
+  cy: var(--half-size);
+  r: var(--radius);
+
+  stroke-width: var(--stroke-width);
+  fill: none;
+}
+
+.progress__circle--background {
+  stroke: var(--progress-background);
+}
+
+.progress__circle--fill {
+  transform: rotate(-90deg);
+
+  transform-origin: var(--half-size) var(--half-size);
+  stroke-dasharray: var(--dasharray) calc(var(--circumference) - var(--dasharray));
+  transition: stroke-dasharray var(--time-base) linear;
+
+  stroke: var(--active-color);
+}
+
+.progress__hidden {
+  position: absolute;
+
+  color: var(--active-color);
+  opacity: 0;
+  transition: opacity var(--time-base);
+}
+
+.progress__hidden--active {
+  opacity: 1;
+}

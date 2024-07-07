@@ -1,0 +1,63 @@
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.control__item {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Value control styles */
+.value__message {
+  position: absolute;
+  left: 0;
+  top: -45px;
+
+  font-size: 14px;
+  color: var(--error-color);
+
+  opacity: 0;
+  transition: opacity var(--time-base);
+}
+
+.value__message--active {
+  opacity: 1;
+}
+
+.value__input {
+  width: 59px;
+  height: 38px;
+  border-radius: 20px;
+
+  text-align: center;
+  border: 2px solid black;
+  outline: none;
+}
+
+/* Animation control styles */
+.switcher__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.switcher__show {
+  display: block;
+
+  color: var(--input-background);
+  cursor: pointer;
+}
+
+.switcher__show,
+.switcher__indicator {
+  transition: var(--time-base);
+}
+
+.switcher__input:checked + .switcher__show {
+  color: var(--active-color);
+}
