@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress</title>
+
+  <link rel="stylesheet" href="./styles/common.css">
+  <link rel="stylesheet" href="./styles/progress.css">
+  <link rel="stylesheet" href="./styles/controls.css">
+</head>
+<body>
+  <main class="main">
+    <div class="progress">
+      <svg class="progress__diagram" width="200" height="200" viewBox="0 0 200 200">
+        <circle class="progress__circle progress__circle--background"></circle>
+        <circle class="progress__circle progress__circle--fill"></circle>
+      </svg>
+
+      <span class="progress__hidden">Hidden</span>
+    </div>
+
+    <form class="control">
+      <div class="control__item">
+        <span class="value__message">Enter a value in the range from 0 to 100</span>
+
+        <input class="value__input" type="text">
+        
+        <p class="control__title">Value</p>
+      </div>
+
+      <div class="control__item">
+        <label class="switcher animation">
+          <input class="switcher__input animation__input" type="checkbox">
+
+          <svg class="switcher__show" width="59" height="38" viewBox="0 0 59 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="59" height="38" rx="19" fill="currentColor"/>
+            <circle class="switcher__indicator animation__indicator" cx="19" cy="19" r="16" fill="white"/>
+          </svg>
+        </label>
+
+        <p class="control__title">Animate</p>
+      </div>
+
+      <div class="control__item">
+        <label class="switcher">
+          <input class="switcher__input hide__input" type="checkbox">
+
+          <svg class="switcher__show" width="59" height="38" viewBox="0 0 59 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="59" height="38" rx="19" fill="currentColor"/>
+            <circle class="switcher__indicator hide__indicator" cx="19" cy="19" r="16" fill="white"/>
+          </svg>
+        </label>
+
+        <p class="control__title">Hide</p>
+      </div>
+    </form>
+  </main>
+
+  <script defer src="./js/elements.js"></script>
+  <script defer src="./js/progress.js"></script>
+  <script defer src="./js/controls.js"></script>
+</body>
+</html>
